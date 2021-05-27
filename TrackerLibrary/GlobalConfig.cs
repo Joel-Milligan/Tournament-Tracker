@@ -10,6 +10,11 @@ namespace TrackerLibrary
     {
         public static List<IDataConnection> Connections { get; private set; } = new();
 
+        /// <summary>
+        /// Initialises the data connections, with choices of database and/or text file.
+        /// </summary>
+        /// <param name="database">Indicates if using a database for persistance.</param>
+        /// <param name="textFiles">Indicates if using a text file for persistance.</param>
         public static void InitConnections(bool database, bool textFiles)
         {
             if (database)
