@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using TrackerLibrary.DataAccess;
 
 namespace TrackerLibrary
 {
@@ -27,7 +24,7 @@ namespace TrackerLibrary
             if (textFiles)
             {
                 // TODO: Set up the text connector properly
-                TextConnection text = new();
+                TextConnector text = new();
                 Connections.Add(text);
             }
         }

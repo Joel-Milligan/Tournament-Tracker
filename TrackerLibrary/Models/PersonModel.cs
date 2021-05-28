@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-namespace TrackerLibrary
+
+namespace TrackerLibrary.Models
 {
     public class PersonModel
     {
