@@ -16,5 +16,27 @@ namespace TrackerUI
         {
             InitializeComponent();
         }
+
+        private void createMemberButton_Click(object sender, EventArgs e)
+        {
+            // Validate the form
+            if (ValidateForm())
+            {
+                // Retrieve the information from the form
+                // Create a new Person
+                // Save the person
+                // Clear the form
+            }
+            else
+            {
+                MessageBox.Show("This form has invalid information. Please check it and try again.");
+            }
+        }
+
+        private bool ValidateForm()
+        {
+            // TODO: Add validation to the form
+            return true;
+        }
     }
 }
