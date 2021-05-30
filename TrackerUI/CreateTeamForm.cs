@@ -45,7 +45,7 @@ namespace TrackerUI
             }
         }
 
-        // TODO: More complex validation.
+        // TODO: More complex validation is required.
         private bool ValidateForm()
         {
             if (firstNameValue.Text.Length == 0)
