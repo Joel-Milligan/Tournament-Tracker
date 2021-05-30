@@ -22,6 +22,17 @@ namespace TrackerLibrary.Models
         public string LastName { get; set; }
         
         /// <summary>
+        /// Readonly full name of person in the format of "FirstName LastName"
+        /// </summary>
+        public string FullName
+        {
+            get
+            {
+                return $"{ FirstName } { LastName }";
+            }
+        }
+
+        /// <summary>
         /// Person's email address
         /// </summary>
         public string EmailAddress { get; set; }
