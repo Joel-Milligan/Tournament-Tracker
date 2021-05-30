@@ -6,6 +6,11 @@ namespace TrackerLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        public PersonModel CreatePerson(PersonModel model)
+        {
+            throw new System.NotImplementedException();
+        }
+
         /// <summary>
         /// Saves a new prize to the database
         /// </summary>
