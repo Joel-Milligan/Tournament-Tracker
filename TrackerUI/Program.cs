@@ -20,10 +20,12 @@ namespace TrackerUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             // Initialise the database connections
-            TrackerLibrary.GlobalConfig.InitConnections(DatabaseType.TextFile);
+            GlobalConfig.InitConnections(DatabaseType.Sql);
+            
+            // Entrypoint of the application.
+            Application.Run(new CreateTeamForm());
 
-            Application.Run(new CreatePrizeForm());
-            //Application.Run(new TournamentDashboardForm());
+            //TODO: Real entry point = Application.Run(new TournamentDashboardForm());
         }
     }
 }
