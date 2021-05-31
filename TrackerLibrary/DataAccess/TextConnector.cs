@@ -11,35 +11,6 @@ namespace TrackerLibrary.DataAccess
         private const string PeopleFile = "PersonModels.csv";
 
         /// <summary>
-        /// Saves a new person to the People text file
-        /// </summary>
-        /// <param name="model">The person's information.</param>
-        /// <returns>The person information, including the unique identifier.</returns>
-        public PersonModel CreatePerson(PersonModel model)
-        {
-            // Load the text file and convert the text to List<PersonModel>
-            List<PersonModel> people = PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
-
-            // Find the max ID, then create the new ID
-            int currentId = 1;
-
-            if (people.Count != 0)
-            {
-                currentId = people.OrderByDescending(p => p.Id).First().Id + 1;
-            }
-
-            model.Id = currentId;
-
-            // Add the new record with the new ID
-            people.Add(model);
-
-            // Convert the people to List<string> and save it to the text file
-            people.SaveToPersonFile(PeopleFile);
-
-            return model;
-        }
-
-        /// <summary>
         /// Saves a new prize to the Prize text file
         /// </summary>
         /// <param name="model">The prize information.</param>
@@ -68,9 +39,38 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
+        /// <summary>
+        /// Saves a new person to the People text file
+        /// </summary>
+        /// <param name="model">The person's information.</param>
+        /// <returns>The person information, including the unique identifier.</returns>
+        public PersonModel CreatePerson(PersonModel model)
+        {
+            // Load the text file and convert the text to List<PersonModel>
+            List<PersonModel> people = GetPerson_All();
+
+            // Find the max ID, then create the new ID
+            int currentId = 1;
+
+            if (people.Count != 0)
+            {
+                currentId = people.OrderByDescending(p => p.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            // Add the new record with the new ID
+            people.Add(model);
+
+            // Convert the people to List<string> and save it to the text file
+            people.SaveToPersonFile(PeopleFile);
+
+            return model;
+        }
+
         public List<PersonModel> GetPerson_All()
         {
-            throw new System.NotImplementedException();
+            return PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
         }
     }
 }
