@@ -56,9 +56,34 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
+        /// <summary>
+        /// Saves the new team to the database.
+        /// </summary>
+        /// <param name="model">Team information.</param>
+        /// <returns>The team that got saved to the database.</returns>
         public TeamModel CreateTeam(TeamModel model)
         {
-            throw new System.NotImplementedException();
+            using IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName));
+            DynamicParameters p = new();
+
+            p.Add("@TeamName", model.TeamName);
+            p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+            // TODO: Validate there isn't an empty team name.
+            connection.Execute("dbo.spTeams_Insert", p, commandType: CommandType.StoredProcedure);
+
+            model.Id = p.Get<int>("@id");
+
+            foreach (PersonModel tm in model.TeamMembers)
+            {
+                p = new();
+                p.Add("@TeamId", model.Id);
+                p.Add("@PersonId", tm.Id);
+
+                connection.Execute("dbo.spTeamMembers_Insert", p, commandType: CommandType.StoredProcedure);
+            }
+
+            return model;
         }
 
         public List<PersonModel> GetPerson_All()
