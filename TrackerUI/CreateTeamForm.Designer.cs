@@ -246,6 +246,7 @@ namespace TrackerUI
             this.removeSelectedButton.TabIndex = 22;
             this.removeSelectedButton.Text = "Remove Selected";
             this.removeSelectedButton.UseVisualStyleBackColor = true;
+            this.removeSelectedButton.Click += new System.EventHandler(this.removeSelectedButton_Click);
             // 
             // createTeamButton
             // 

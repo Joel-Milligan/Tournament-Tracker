@@ -57,7 +57,11 @@ namespace TrackerUI
                 p.PhoneNumber = phoneValue.Text;
 
                 // Save the person
-                GlobalConfig.Connection.CreatePerson(p);
+                p = GlobalConfig.Connection.CreatePerson(p);
+
+                // Update the form
+                selectedTeamMembers.Add(p);
+                WireUpLists();
 
                 // Clear the form
                 firstNameValue.Text = "";
@@ -101,10 +105,26 @@ namespace TrackerUI
         {
             PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
 
-            availableTeamMembers.Remove(p);
-            selectedTeamMembers.Add(p);
+            if (p is not null)
+            {
+                availableTeamMembers.Remove(p);
+                selectedTeamMembers.Add(p);
 
-            WireUpLists();
+                WireUpLists(); 
+            }
+        }
+
+        private void removeSelectedButton_Click(object sender, EventArgs e)
+        {
+            PersonModel p = (PersonModel)teamMembersListBox.SelectedItem;
+
+            if (p is not null)
+            {
+                selectedTeamMembers.Remove(p);
+                availableTeamMembers.Add(p);
+
+                WireUpLists(); 
+            }
         }
     }
 }
