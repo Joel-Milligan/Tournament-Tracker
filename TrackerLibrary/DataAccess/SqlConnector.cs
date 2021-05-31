@@ -86,6 +86,10 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
+        /// <summary>
+        /// Returns all people in the database.
+        /// </summary>
+        /// <returns>List of all person models from the database.</returns>
         public List<PersonModel> GetPerson_All()
         {
             List<PersonModel> output;
