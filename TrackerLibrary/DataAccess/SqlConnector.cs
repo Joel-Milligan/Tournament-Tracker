@@ -8,6 +8,8 @@ namespace TrackerLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
+        private const string dbName = "Tournaments";
+
         /// <summary>
         /// Saves a new person to the database
         /// </summary>
@@ -15,7 +17,7 @@ namespace TrackerLibrary.DataAccess
         /// <returns>The person information, including the unique identifier.</returns>
         public PersonModel CreatePerson(PersonModel model)
         {
-            using IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments"));
+            using IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName));
             DynamicParameters p = new();
 
             p.Add("@FirstName", model.FirstName);
@@ -38,7 +40,7 @@ namespace TrackerLibrary.DataAccess
         /// <returns>The prize information, including the unique identifier.</returns>
         public PrizeModel CreatePrize(PrizeModel model)
         {
-            using IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments"));
+            using IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName));
             DynamicParameters p = new();
 
             p.Add("@PlaceNumber", model.PlaceNumber);
@@ -58,7 +60,7 @@ namespace TrackerLibrary.DataAccess
         {
             List<PersonModel> output;
 
-            using (IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
             {
                 // This isn't just a simple return, for debugging purposes.
                 output = connection.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
