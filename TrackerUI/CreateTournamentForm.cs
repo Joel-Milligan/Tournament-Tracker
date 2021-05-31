@@ -12,7 +12,7 @@ using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
-    public partial class CreateTournamentForm : Form, IPrizeRequester
+    public partial class CreateTournamentForm : Form, IPrizeRequester, ITeamRequester
     {
         List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All();
         List<TeamModel> selectedTeams = new();
@@ -69,8 +69,8 @@ namespace TrackerUI
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
             // Open the CreatePrizeForm
-            CreatePrizeForm frm = new(this);
-            frm.Show();
+            CreatePrizeForm form = new(this);
+            form.Show();
         }
 
         /// <summary>
@@ -81,6 +81,20 @@ namespace TrackerUI
         {
             // Take the PrizeModel and put it into out list of selected prizes
             selectedPrizes.Add(model);
+            WireUpLists();
+        }
+
+        private void createNewTeamLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Open the CreateTeamForm
+            CreateTeamForm form = new(this);
+            form.Show();
+        }
+
+        public void TeamComplete(TeamModel model)
+        {
+            // Take the TeamModel and put it into out list of selected teams
+            selectedTeams.Add(model);
             WireUpLists();
         }
     }
