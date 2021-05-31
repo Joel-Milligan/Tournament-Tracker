@@ -39,12 +39,12 @@ namespace TrackerUI
             this.createMemberButton = new System.Windows.Forms.Button();
             this.emailValue = new System.Windows.Forms.TextBox();
             this.emailLabel = new System.Windows.Forms.Label();
+            this.phoneValue = new System.Windows.Forms.TextBox();
             this.lastNameValue = new System.Windows.Forms.TextBox();
+            this.phoneLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameValue = new System.Windows.Forms.TextBox();
             this.firstNameLabel = new System.Windows.Forms.Label();
-            this.phoneValue = new System.Windows.Forms.TextBox();
-            this.phoneLabel = new System.Windows.Forms.Label();
             this.teamMembersListBox = new System.Windows.Forms.ListBox();
             this.deleteTeamButton = new System.Windows.Forms.Button();
             this.createTeamButton = new System.Windows.Forms.Button();
@@ -95,6 +95,7 @@ namespace TrackerUI
             this.addMemberButton.TabIndex = 19;
             this.addMemberButton.Text = "Add Member";
             this.addMemberButton.UseVisualStyleBackColor = true;
+            this.addMemberButton.Click += new System.EventHandler(this.addMemberButton_Click);
             // 
             // selectTeamMemberDropDown
             // 
@@ -168,12 +169,30 @@ namespace TrackerUI
             this.emailLabel.TabIndex = 13;
             this.emailLabel.Text = "Email";
             // 
+            // phoneValue
+            // 
+            this.phoneValue.Location = new System.Drawing.Point(188, 279);
+            this.phoneValue.Name = "phoneValue";
+            this.phoneValue.Size = new System.Drawing.Size(282, 36);
+            this.phoneValue.TabIndex = 16;
+            // 
             // lastNameValue
             // 
             this.lastNameValue.Location = new System.Drawing.Point(188, 149);
             this.lastNameValue.Name = "lastNameValue";
             this.lastNameValue.Size = new System.Drawing.Size(282, 36);
             this.lastNameValue.TabIndex = 12;
+            // 
+            // phoneLabel
+            // 
+            this.phoneLabel.AutoSize = true;
+            this.phoneLabel.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.phoneLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.phoneLabel.Location = new System.Drawing.Point(25, 277);
+            this.phoneLabel.Name = "phoneLabel";
+            this.phoneLabel.Size = new System.Drawing.Size(92, 37);
+            this.phoneLabel.TabIndex = 15;
+            this.phoneLabel.Text = "Phone";
             // 
             // lastNameLabel
             // 
@@ -203,24 +222,6 @@ namespace TrackerUI
             this.firstNameLabel.Size = new System.Drawing.Size(144, 37);
             this.firstNameLabel.TabIndex = 9;
             this.firstNameLabel.Text = "First Name";
-            // 
-            // phoneValue
-            // 
-            this.phoneValue.Location = new System.Drawing.Point(188, 279);
-            this.phoneValue.Name = "phoneValue";
-            this.phoneValue.Size = new System.Drawing.Size(282, 36);
-            this.phoneValue.TabIndex = 16;
-            // 
-            // phoneLabel
-            // 
-            this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.phoneLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.phoneLabel.Location = new System.Drawing.Point(25, 277);
-            this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(92, 37);
-            this.phoneLabel.TabIndex = 15;
-            this.phoneLabel.Text = "Phone";
             // 
             // teamMembersListBox
             // 
