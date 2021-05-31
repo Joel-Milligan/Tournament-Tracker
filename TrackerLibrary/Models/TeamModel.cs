@@ -5,13 +5,20 @@ namespace TrackerLibrary.Models
     public class TeamModel
     {
         /// <summary>
-        /// The members that compose this team.
+        /// Unique identifier of this team.
         /// </summary>
-        public List<PersonModel> TeamMembers { get; set; } = new();
+        public int Id { get; set; }
 
         /// <summary>
         /// The name of the team.
         /// </summary>
         public string TeamName { get; set; }
+        
+        /// <summary>
+        /// The members that compose this team.
+        /// </summary>
+        public List<PersonModel> TeamMembers { get; set; } = new();
+
+        
     }
 }
