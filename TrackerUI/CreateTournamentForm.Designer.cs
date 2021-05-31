@@ -191,6 +191,7 @@ namespace TrackerUI
             this.deleteTeamButton.TabIndex = 20;
             this.deleteTeamButton.Text = "Delete Team";
             this.deleteTeamButton.UseVisualStyleBackColor = true;
+            this.deleteTeamButton.Click += new System.EventHandler(this.deleteTeamButton_Click);
             // 
             // deletePrizeButton
             // 

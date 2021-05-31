@@ -46,5 +46,18 @@ namespace TrackerUI
                 WireUpLists();
             }
         }
+
+        private void deleteTeamButton_Click(object sender, EventArgs e)
+        {
+            TeamModel p = (TeamModel)tournamentPlayersListBox.SelectedItem;
+
+            if (p is not null)
+            {
+                selectedTeams.Remove(p);
+                availableTeams.Add(p);
+
+                WireUpLists();
+            }
+        }
     }
 }
