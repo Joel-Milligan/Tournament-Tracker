@@ -209,6 +209,7 @@ namespace TrackerUI
             this.deletePrizeButton.TabIndex = 23;
             this.deletePrizeButton.Text = "Delete Prize";
             this.deletePrizeButton.UseVisualStyleBackColor = true;
+            this.deletePrizeButton.Click += new System.EventHandler(this.deletePrizeButton_Click);
             // 
             // prizesLabel
             // 

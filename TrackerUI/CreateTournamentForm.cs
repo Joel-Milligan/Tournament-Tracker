@@ -97,5 +97,17 @@ namespace TrackerUI
             selectedTeams.Add(model);
             WireUpLists();
         }
+
+        private void deletePrizeButton_Click(object sender, EventArgs e)
+        {
+            PrizeModel p = (PrizeModel)prizeListBox.SelectedItem;
+
+            if (p is not null)
+            {
+                selectedPrizes.Remove(p);
+                WireUpLists();
+                // TODO: This could be deleting from the data source, but this could cause a multitude of issues.
+            }
+        }
     }
 }
