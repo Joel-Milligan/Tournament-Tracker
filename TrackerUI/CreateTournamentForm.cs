@@ -15,17 +15,36 @@ namespace TrackerUI
     public partial class CreateTournamentForm : Form
     {
         List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All();
+        List<TeamModel> selectedTeams = new();
 
         public CreateTournamentForm()
         {
             InitializeComponent();
-            InitialiseLists();
+            WireUpLists();
         }
 
-        private void InitialiseLists()
+        private void WireUpLists()
         {
+            selectTeamDropDown.DataSource = null;
             selectTeamDropDown.DataSource = availableTeams;
             selectTeamDropDown.DisplayMember = "TeamName";
+
+            tournamentPlayersListBox.DataSource = null;
+            tournamentPlayersListBox.DataSource = selectedTeams;
+            tournamentPlayersListBox.DisplayMember = "TeamName";
+        }
+
+        private void addTeamButton_Click(object sender, EventArgs e)
+        {
+            TeamModel p = (TeamModel)selectTeamDropDown.SelectedItem;
+
+            if (p is not null)
+            {
+                availableTeams.Remove(p);
+                selectedTeams.Add(p);
+
+                WireUpLists();
+            }
         }
     }
 }
