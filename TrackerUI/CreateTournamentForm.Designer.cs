@@ -211,7 +211,7 @@ namespace TrackerUI
             this.prizesLabel.AutoSize = true;
             this.prizesLabel.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.prizesLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.prizesLabel.Location = new System.Drawing.Point(411, 272);
+            this.prizesLabel.Location = new System.Drawing.Point(411, 257);
             this.prizesLabel.Name = "prizesLabel";
             this.prizesLabel.Size = new System.Drawing.Size(85, 37);
             this.prizesLabel.TabIndex = 22;
@@ -223,7 +223,7 @@ namespace TrackerUI
             this.prizeListBox.ItemHeight = 30;
             this.prizeListBox.Location = new System.Drawing.Point(411, 297);
             this.prizeListBox.Name = "prizeListBox";
-            this.prizeListBox.Size = new System.Drawing.Size(384, 214);
+            this.prizeListBox.Size = new System.Drawing.Size(384, 184);
             this.prizeListBox.TabIndex = 21;
             // 
             // createTournamentButton
@@ -234,9 +234,9 @@ namespace TrackerUI
             this.createTournamentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createTournamentButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.createTournamentButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.createTournamentButton.Location = new System.Drawing.Point(309, 517);
+            this.createTournamentButton.Location = new System.Drawing.Point(339, 508);
             this.createTournamentButton.Name = "createTournamentButton";
-            this.createTournamentButton.Size = new System.Drawing.Size(327, 94);
+            this.createTournamentButton.Size = new System.Drawing.Size(223, 54);
             this.createTournamentButton.TabIndex = 24;
             this.createTournamentButton.Text = "Create Tournament";
             this.createTournamentButton.UseVisualStyleBackColor = true;
@@ -246,7 +246,7 @@ namespace TrackerUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(987, 625);
+            this.ClientSize = new System.Drawing.Size(987, 586);
             this.Controls.Add(this.createTournamentButton);
             this.Controls.Add(this.deletePrizeButton);
             this.Controls.Add(this.prizesLabel);
