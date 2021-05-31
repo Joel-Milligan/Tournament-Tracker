@@ -27,11 +27,11 @@ namespace TrackerUI
         {
             selectTeamDropDown.DataSource = null;
             selectTeamDropDown.DataSource = availableTeams;
-            selectTeamDropDown.DisplayMember = "TeamName";
+            selectTeamDropDown.DisplayMember = nameof(TeamModel.TeamName);
 
             tournamentPlayersListBox.DataSource = null;
             tournamentPlayersListBox.DataSource = selectedTeams;
-            tournamentPlayersListBox.DisplayMember = "TeamName";
+            tournamentPlayersListBox.DisplayMember = nameof(TeamModel.TeamName);
         }
 
         private void addTeamButton_Click(object sender, EventArgs e)

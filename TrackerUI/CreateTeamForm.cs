@@ -35,14 +35,14 @@ namespace TrackerUI
 
         private void WireUpLists()
         {
-            // TODO: There is almost certainly a better way to do this.
+            // TODO: There is almost certainly a better way to refresh form data.
             selectTeamMemberDropDown.DataSource = null;
             selectTeamMemberDropDown.DataSource = availableTeamMembers;
-            selectTeamMemberDropDown.DisplayMember = "FullName";
+            selectTeamMemberDropDown.DisplayMember = nameof(PersonModel.FullName);
 
             teamMembersListBox.DataSource = null;
             teamMembersListBox.DataSource = selectedTeamMembers;
-            teamMembersListBox.DisplayMember = "FullName";
+            teamMembersListBox.DisplayMember = nameof(PersonModel.FullName);
         }
 
         private void createMemberButton_Click(object sender, EventArgs e)
