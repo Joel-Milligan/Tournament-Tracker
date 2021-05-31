@@ -1,5 +1,7 @@
 ﻿using Dapper;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using TrackerLibrary.Models;
 
 namespace TrackerLibrary.DataAccess
@@ -50,6 +52,19 @@ namespace TrackerLibrary.DataAccess
             model.Id = p.Get<int>("@id");
 
             return model;
+        }
+
+        public List<PersonModel> GetPerson_All()
+        {
+            List<PersonModel> output;
+
+            using (IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            {
+                // This isn't just a simple return, for debugging purposes.
+                output = connection.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
+            }
+
+            return output;
         }
     }
 }
