@@ -103,9 +103,28 @@ namespace TrackerLibrary.DataAccess
             return output;
         }
 
+        /// <summary>
+        /// Returns all teams in the database.
+        /// </summary>
+        /// <returns>List of all team models from the database.</returns>
         public List<TeamModel> GetTeam_All()
         {
-            throw new System.NotImplementedException();
+            List<TeamModel> output;
+
+            using (IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                output = connection.Query<TeamModel>("dbo.spTeam_GetAll").ToList();
+
+                foreach (TeamModel team in output)
+                {
+                    DynamicParameters p = new();
+                    p.Add("@TeamId", team.Id);
+
+                    team.TeamMembers = connection.Query<PersonModel>("dbo.spTeamMembers_GetByTeam", p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+
+            return output;
         }
     }
 }

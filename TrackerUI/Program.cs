@@ -20,7 +20,7 @@ namespace TrackerUI
             GlobalConfig.InitConnections(DatabaseType.Sql);
             
             // Entrypoint of the application.
-            Application.Run(new CreateTeamForm());
+            Application.Run(new CreateTournamentForm());
 
             //TODO: Real entry point = Application.Run(new TournamentDashboardForm());
         }
