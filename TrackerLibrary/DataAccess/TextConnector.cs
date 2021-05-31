@@ -85,7 +85,7 @@ namespace TrackerLibrary.DataAccess
         /// <returns>The team that got saved to the file.</returns>
         public TeamModel CreateTeam(TeamModel model)
         {
-            List<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+            List<TeamModel> teams = GetTeam_All();
 
             // Find the max ID, then create the new ID
             int currentId = 1;
@@ -108,7 +108,7 @@ namespace TrackerLibrary.DataAccess
 
         public List<TeamModel> GetTeam_All()
         {
-            throw new System.NotImplementedException();
+            return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
         }
     }
 }
