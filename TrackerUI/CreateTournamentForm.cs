@@ -36,12 +36,12 @@ namespace TrackerUI
 
         private void addTeamButton_Click(object sender, EventArgs e)
         {
-            TeamModel p = (TeamModel)selectTeamDropDown.SelectedItem;
+            TeamModel t = (TeamModel)selectTeamDropDown.SelectedItem;
 
-            if (p is not null)
+            if (t is not null)
             {
-                availableTeams.Remove(p);
-                selectedTeams.Add(p);
+                availableTeams.Remove(t);
+                selectedTeams.Add(t);
 
                 WireUpLists();
             }
