@@ -10,6 +10,7 @@ namespace TrackerLibrary.DataAccess
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PersonModels.csv";
         private const string TeamsFile = "TeamModels.csv";
+        private const string TournamentFile = "TournamentModels.csv";
 
         /// <summary>
         /// Saves a new prize to the Prize text file
@@ -37,6 +38,7 @@ namespace TrackerLibrary.DataAccess
             // Convert the prizes to List<string> and save it to the text file
             prizes.SaveToPrizeFile(PrizesFile);
 
+            // TODO: Make this void
             return model;
         }
 
@@ -66,6 +68,7 @@ namespace TrackerLibrary.DataAccess
             // Convert the people to List<string> and save it to the text file
             people.SaveToPersonFile(PeopleFile);
 
+            // TODO: Make this void
             return model;
         }
 
@@ -103,6 +106,7 @@ namespace TrackerLibrary.DataAccess
             // Convert the people to List<string> and save it to the text file
             teams.SaveToTeamsFile(TeamsFile);
 
+            // TODO: Make this void
             return model;
         }
 
@@ -111,9 +115,25 @@ namespace TrackerLibrary.DataAccess
             return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
         }
 
-        public TournamentModel CreateTournament(TournamentModel model)
+        public void CreateTournament(TournamentModel model)
         {
-            throw new System.NotImplementedException();
+            List<TournamentModel> tournaments = TournamentFile
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
+
+            int currentId = 1;
+
+            if (tournaments.Count > 0)
+            {
+                currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            tournaments.Add(model);
+
+            tournaments.SaveToTournamentsFile(TournamentFile);
         }
     }
 }

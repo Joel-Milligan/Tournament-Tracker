@@ -91,16 +91,15 @@ namespace TrackerLibrary.DataAccess
         /// </summary>
         /// <param name="model">Tournament information.</param>
         /// <returns>The tournament that got saved to the database.</returns>
-        public TournamentModel CreateTournament(TournamentModel model)
+        public void CreateTournament(TournamentModel model)
         {
             using IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName));
 
             SaveTournament(model, connection);
             SaveTournamentPrizes(model, connection);
             SaveTournamentEntries(model, connection);
-
-            return model;
         }
+        
         private static void SaveTournament(TournamentModel model, IDbConnection connection)
         {
             DynamicParameters p = new();
