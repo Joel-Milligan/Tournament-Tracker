@@ -86,9 +86,23 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
+        /// <summary>
+        /// Saves the new tournament to the database.
+        /// </summary>
+        /// <param name="model">Tournament information.</param>
+        /// <returns>The tournament that got saved to the database.</returns>
         public TournamentModel CreateTournament(TournamentModel model)
         {
             using IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName));
+
+            SaveTournament(model, connection);
+            SaveTournamentPrizes(model, connection);
+            SaveTournamentEntries(model, connection);
+
+            return model;
+        }
+        private static void SaveTournament(TournamentModel model, IDbConnection connection)
+        {
             DynamicParameters p = new();
 
             p.Add("@TournamentName", model.TournamentName);
@@ -98,26 +112,30 @@ namespace TrackerLibrary.DataAccess
             connection.Execute("dbo.spTournaments_Insert", p, commandType: CommandType.StoredProcedure);
 
             model.Id = p.Get<int>("@id");
+        }
 
+        private static void SaveTournamentPrizes(TournamentModel model, IDbConnection connection)
+        {
             foreach (PrizeModel prize in model.Prizes)
             {
-                p = new();
+                DynamicParameters p = new();
                 p.Add("@TournamentId", model.Id);
                 p.Add("@PrizeId", prize.Id);
 
                 connection.Execute("dbo.spTournamentPrizes_Insert", p, commandType: CommandType.StoredProcedure);
             }
+        }
 
+        private static void SaveTournamentEntries(TournamentModel model, IDbConnection connection)
+        {
             foreach (TeamModel team in model.EnteredTeams)
             {
-                p = new();
+                DynamicParameters p = new();
                 p.Add("@TournamentId", model.Id);
                 p.Add("@TeamId", team.Id);
 
                 connection.Execute("dbo.spTournamentEntries_Insert", p, commandType: CommandType.StoredProcedure);
             }
-
-            return model;
         }
 
         /// <summary>

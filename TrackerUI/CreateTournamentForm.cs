@@ -125,18 +125,18 @@ namespace TrackerUI
                 return;
             }
 
-            // Populate and save the tournament model
-            TournamentModel tm = new();
+            // Populate the tournament model
+            TournamentModel tournament = new();
 
-            tm.TournamentName = tournamentNameValue.Text;
-            tm.EntryFee = fee;
-            tm.Prizes = selectedPrizes;
-            tm.EnteredTeams = selectedTeams;
-
-            // Create and save all of the prizes entries
-            // Create and save all of the team entries
+            tournament.TournamentName = tournamentNameValue.Text;
+            tournament.EntryFee = fee;
+            tournament.Prizes = selectedPrizes;
+            tournament.EnteredTeams = selectedTeams;
 
             // Create (and save?) our matchups
+
+            // Save the tournament to the data source.
+            GlobalConfig.Connection.CreateTournament(tournament);
         }
     }
 }
