@@ -109,5 +109,34 @@ namespace TrackerUI
                 // TODO: This could be deleting from the data source, but this could cause a multitude of issues.
             }
         }
+
+        private void createTournamentButton_Click(object sender, EventArgs e)
+        {
+            // Validate data
+            bool feeAcceptable = decimal.TryParse(entryFeeValue.Text, out decimal fee);
+
+            if (!feeAcceptable)
+            {
+                MessageBox.Show(
+                    "You need to enter a valid Entry Fee.", 
+                    "Invalid Fee", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            // Populate and save the tournament model
+            TournamentModel tm = new();
+
+            tm.TournamentName = tournamentNameValue.Text;
+            tm.EntryFee = fee;
+            tm.Prizes = selectedPrizes;
+            tm.EnteredTeams = selectedTeams;
+
+            // Create and save all of the prizes entries
+            // Create and save all of the team entries
+
+            // Create (and save?) our matchups
+        }
     }
 }
