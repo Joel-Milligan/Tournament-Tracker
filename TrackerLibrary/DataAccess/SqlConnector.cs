@@ -86,6 +86,11 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
+        public TournamentModel CreateTournament(TournamentModel model)
+        {
+            throw new System.NotImplementedException();
+        }
+
         /// <summary>
         /// Returns all people in the database.
         /// </summary>

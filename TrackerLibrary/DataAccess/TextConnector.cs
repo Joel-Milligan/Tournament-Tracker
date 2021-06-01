@@ -110,5 +110,10 @@ namespace TrackerLibrary.DataAccess
         {
             return TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
         }
+
+        public TournamentModel CreateTournament(TournamentModel model)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
