@@ -133,7 +133,7 @@ namespace TrackerUI
             tournament.Prizes = selectedPrizes;
             tournament.EnteredTeams = selectedTeams;
 
-            // Create (and save?) our matchups
+            TournamentLogic.CreateRounds(tournament);
 
             // Save the tournament to the data source.
             GlobalConfig.Connection.CreateTournament(tournament);
