@@ -3,6 +3,11 @@
     public class MatchupEntryModel
     {
         /// <summary>
+        /// Unique identifier for this matchup entry
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Represents one of the teams in the parent matchup.
         /// </summary>
         public TeamModel TeamCompeting { get; set; }
