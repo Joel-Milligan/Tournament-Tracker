@@ -51,9 +51,9 @@ namespace TrackerUI
             this.headerLabel.BackColor = System.Drawing.Color.White;
             this.headerLabel.Font = new System.Drawing.Font("Segoe UI Light", 28.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.headerLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.headerLabel.Location = new System.Drawing.Point(2, 9);
+            this.headerLabel.Location = new System.Drawing.Point(12, 9);
             this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(431, 100);
+            this.headerLabel.Size = new System.Drawing.Size(217, 51);
             this.headerLabel.TabIndex = 0;
             this.headerLabel.Text = "Tournament:";
             // 
@@ -63,9 +63,9 @@ namespace TrackerUI
             this.tournamentName.BackColor = System.Drawing.Color.White;
             this.tournamentName.Font = new System.Drawing.Font("Segoe UI Light", 28.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tournamentName.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.tournamentName.Location = new System.Drawing.Point(419, 9);
+            this.tournamentName.Location = new System.Drawing.Point(235, 9);
             this.tournamentName.Name = "tournamentName";
-            this.tournamentName.Size = new System.Drawing.Size(300, 100);
+            this.tournamentName.Size = new System.Drawing.Size(152, 51);
             this.tournamentName.TabIndex = 1;
             this.tournamentName.Text = "<none>";
             // 
@@ -74,19 +74,20 @@ namespace TrackerUI
             this.roundLabel.AutoSize = true;
             this.roundLabel.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.roundLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.roundLabel.Location = new System.Drawing.Point(12, 151);
+            this.roundLabel.Location = new System.Drawing.Point(12, 74);
             this.roundLabel.Name = "roundLabel";
-            this.roundLabel.Size = new System.Drawing.Size(182, 71);
+            this.roundLabel.Size = new System.Drawing.Size(94, 37);
             this.roundLabel.TabIndex = 2;
             this.roundLabel.Text = "Round";
             // 
             // roundDropDown
             // 
             this.roundDropDown.FormattingEnabled = true;
-            this.roundDropDown.Location = new System.Drawing.Point(221, 155);
+            this.roundDropDown.Location = new System.Drawing.Point(112, 76);
             this.roundDropDown.Name = "roundDropDown";
-            this.roundDropDown.Size = new System.Drawing.Size(403, 67);
+            this.roundDropDown.Size = new System.Drawing.Size(275, 38);
             this.roundDropDown.TabIndex = 3;
+            this.roundDropDown.SelectedIndexChanged += new System.EventHandler(this.roundDropDown_SelectedIndexChanged);
             // 
             // unplayedOnlyCheckbox
             // 
@@ -94,9 +95,9 @@ namespace TrackerUI
             this.unplayedOnlyCheckbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.unplayedOnlyCheckbox.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.unplayedOnlyCheckbox.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.unplayedOnlyCheckbox.Location = new System.Drawing.Point(221, 244);
+            this.unplayedOnlyCheckbox.Location = new System.Drawing.Point(112, 132);
             this.unplayedOnlyCheckbox.Name = "unplayedOnlyCheckbox";
-            this.unplayedOnlyCheckbox.Size = new System.Drawing.Size(403, 75);
+            this.unplayedOnlyCheckbox.Size = new System.Drawing.Size(209, 41);
             this.unplayedOnlyCheckbox.TabIndex = 4;
             this.unplayedOnlyCheckbox.Text = "Unplayed Only";
             this.unplayedOnlyCheckbox.UseVisualStyleBackColor = true;
@@ -105,10 +106,10 @@ namespace TrackerUI
             // 
             this.matchupListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.matchupListBox.FormattingEnabled = true;
-            this.matchupListBox.ItemHeight = 59;
-            this.matchupListBox.Location = new System.Drawing.Point(12, 368);
+            this.matchupListBox.ItemHeight = 30;
+            this.matchupListBox.Location = new System.Drawing.Point(12, 179);
             this.matchupListBox.Name = "matchupListBox";
-            this.matchupListBox.Size = new System.Drawing.Size(612, 592);
+            this.matchupListBox.Size = new System.Drawing.Size(375, 332);
             this.matchupListBox.TabIndex = 5;
             // 
             // teamOneName
@@ -116,36 +117,35 @@ namespace TrackerUI
             this.teamOneName.AutoSize = true;
             this.teamOneName.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.teamOneName.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.teamOneName.Location = new System.Drawing.Point(763, 402);
+            this.teamOneName.Location = new System.Drawing.Point(406, 179);
             this.teamOneName.Name = "teamOneName";
-            this.teamOneName.Size = new System.Drawing.Size(325, 71);
+            this.teamOneName.Size = new System.Drawing.Size(165, 37);
             this.teamOneName.TabIndex = 6;
             this.teamOneName.Text = "<team one>";
-            this.teamOneName.Click += new System.EventHandler(this.label1_Click);
             // 
             // teamOneScoreLabel
             // 
             this.teamOneScoreLabel.AutoSize = true;
             this.teamOneScoreLabel.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.teamOneScoreLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.teamOneScoreLabel.Location = new System.Drawing.Point(763, 496);
+            this.teamOneScoreLabel.Location = new System.Drawing.Point(406, 216);
             this.teamOneScoreLabel.Name = "teamOneScoreLabel";
-            this.teamOneScoreLabel.Size = new System.Drawing.Size(159, 71);
+            this.teamOneScoreLabel.Size = new System.Drawing.Size(82, 37);
             this.teamOneScoreLabel.TabIndex = 7;
             this.teamOneScoreLabel.Text = "Score";
             // 
             // teamOneScoreValue
             // 
-            this.teamOneScoreValue.Location = new System.Drawing.Point(946, 502);
+            this.teamOneScoreValue.Location = new System.Drawing.Point(494, 219);
             this.teamOneScoreValue.Name = "teamOneScoreValue";
-            this.teamOneScoreValue.Size = new System.Drawing.Size(200, 65);
+            this.teamOneScoreValue.Size = new System.Drawing.Size(200, 36);
             this.teamOneScoreValue.TabIndex = 8;
             // 
             // teamTwoScoreValue
             // 
-            this.teamTwoScoreValue.Location = new System.Drawing.Point(946, 824);
+            this.teamTwoScoreValue.Location = new System.Drawing.Point(494, 373);
             this.teamTwoScoreValue.Name = "teamTwoScoreValue";
-            this.teamTwoScoreValue.Size = new System.Drawing.Size(200, 65);
+            this.teamTwoScoreValue.Size = new System.Drawing.Size(200, 36);
             this.teamTwoScoreValue.TabIndex = 11;
             // 
             // teamTwoScoreLabel
@@ -153,9 +153,9 @@ namespace TrackerUI
             this.teamTwoScoreLabel.AutoSize = true;
             this.teamTwoScoreLabel.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.teamTwoScoreLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.teamTwoScoreLabel.Location = new System.Drawing.Point(763, 818);
+            this.teamTwoScoreLabel.Location = new System.Drawing.Point(406, 370);
             this.teamTwoScoreLabel.Name = "teamTwoScoreLabel";
-            this.teamTwoScoreLabel.Size = new System.Drawing.Size(159, 71);
+            this.teamTwoScoreLabel.Size = new System.Drawing.Size(82, 37);
             this.teamTwoScoreLabel.TabIndex = 10;
             this.teamTwoScoreLabel.Text = "Score";
             // 
@@ -164,9 +164,9 @@ namespace TrackerUI
             this.teamTwoName.AutoSize = true;
             this.teamTwoName.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.teamTwoName.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.teamTwoName.Location = new System.Drawing.Point(763, 724);
+            this.teamTwoName.Location = new System.Drawing.Point(406, 333);
             this.teamTwoName.Name = "teamTwoName";
-            this.teamTwoName.Size = new System.Drawing.Size(323, 71);
+            this.teamTwoName.Size = new System.Drawing.Size(165, 37);
             this.teamTwoName.TabIndex = 9;
             this.teamTwoName.Text = "<team two>";
             // 
@@ -175,9 +175,9 @@ namespace TrackerUI
             this.versusLabel.AutoSize = true;
             this.versusLabel.Font = new System.Drawing.Font("Segoe UI", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.versusLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.versusLabel.Location = new System.Drawing.Point(888, 605);
+            this.versusLabel.Location = new System.Drawing.Point(494, 275);
             this.versusLabel.Name = "versusLabel";
-            this.versusLabel.Size = new System.Drawing.Size(133, 71);
+            this.versusLabel.Size = new System.Drawing.Size(70, 37);
             this.versusLabel.TabIndex = 12;
             this.versusLabel.Text = "-VS-";
             // 
@@ -189,19 +189,19 @@ namespace TrackerUI
             this.scoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.scoreButton.Font = new System.Drawing.Font("Segoe UI Semibold", 16.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.scoreButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.scoreButton.Location = new System.Drawing.Point(1235, 588);
+            this.scoreButton.Location = new System.Drawing.Point(713, 268);
             this.scoreButton.Name = "scoreButton";
-            this.scoreButton.Size = new System.Drawing.Size(217, 112);
+            this.scoreButton.Size = new System.Drawing.Size(126, 54);
             this.scoreButton.TabIndex = 13;
             this.scoreButton.Text = "Score";
             this.scoreButton.UseVisualStyleBackColor = true;
             // 
             // TournamentViewerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(24F, 59F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1527, 1137);
+            this.ClientSize = new System.Drawing.Size(853, 542);
             this.Controls.Add(this.scoreButton);
             this.Controls.Add(this.versusLabel);
             this.Controls.Add(this.teamTwoScoreValue);
@@ -219,7 +219,6 @@ namespace TrackerUI
             this.Font = new System.Drawing.Font("Segoe UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "TournamentViewerForm";
             this.Text = "Tournament Viewer";
-            this.Load += new System.EventHandler(this.TournamentViewerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

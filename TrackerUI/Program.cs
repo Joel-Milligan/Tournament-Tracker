@@ -19,7 +19,7 @@ namespace TrackerUI
             // Initialise the database connections
             GlobalConfig.InitConnections(DatabaseType.Sql);
             
-            // Entrypoint of the application.
+            // Entry point of the application.
             Application.Run(new TournamentDashboardForm());
         }
     }
