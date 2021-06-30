@@ -271,7 +271,7 @@ namespace TrackerLibrary.DataAccess
                     foreach (MatchupModel matchup in matchups)
                     {
                         p = new();
-                        p.Add("@MatchupId", t.Id);
+                        p.Add("@MatchupId", matchup.Id);
 
                         matchup.Entries = connection.Query<MatchupEntryModel>("dbo.spMatchupEntries_GetByMatchup", p, commandType: CommandType.StoredProcedure).ToList();
 
@@ -284,7 +284,7 @@ namespace TrackerLibrary.DataAccess
                         }
 
                         // Populate each entry (2 models)
-                        foreach (var entry in matchup.Entries)
+                        foreach (MatchupEntryModel entry in matchup.Entries)
                         {
                             if (entry.TeamCompetingId > 0)
                             {
