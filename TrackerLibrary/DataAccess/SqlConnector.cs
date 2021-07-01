@@ -319,5 +319,32 @@ namespace TrackerLibrary.DataAccess
 
             return output;
         }
+
+        public void UpdateMatchup(MatchupModel model)
+        {
+            using IDbConnection connection = new Microsoft.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName));
+            DynamicParameters p = new();
+            
+            if (model.Winner is not null)
+            {
+                p.Add("@id", model.Id);
+                p.Add("@WinnerId", model.Winner.Id);
+
+                connection.Execute("dbo.spMatchups_Update", p, commandType: CommandType.StoredProcedure); 
+            }
+
+            foreach (MatchupEntryModel entry in model.Entries)
+            {
+                if (entry.TeamCompeting is not null)
+                {
+                    p = new();
+                    p.Add("@id", entry.Id);
+                    p.Add("@TeamCompetingId", entry.TeamCompeting.Id);
+                    p.Add("@Score", entry.Score);
+
+                    connection.Execute("dbo.spMatchupEntries_Update", p, commandType: CommandType.StoredProcedure); 
+                }
+            }
+        }
     }
 }
