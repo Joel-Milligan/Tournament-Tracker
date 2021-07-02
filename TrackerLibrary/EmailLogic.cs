@@ -11,13 +11,27 @@ namespace TrackerLibrary
     {
         public static void SendEmail(string to, string subject, string body)
         {
+            SendEmail(new() { to }, new(), subject, body);
+        }
+
+        public static void SendEmail(List<string> to, List<string> bcc, string subject, string body)
+        {
             string fromAddress = GlobalConfig.AppKeyLookup("senderEmail");
             string fromName = GlobalConfig.AppKeyLookup("senderName");
 
             MailAddress fromMailAddress = new(fromAddress, fromName);
             MailMessage mail = new();
 
-            mail.To.Add(to);
+            foreach (string email in to)
+            {
+                mail.To.Add(email);
+            }
+
+            foreach (string email in bcc)
+            {
+                mail.Bcc.Add(email);
+            }
+
             mail.From = fromMailAddress;
             mail.Subject = subject;
             mail.Body = body;
