@@ -138,8 +138,11 @@ namespace TrackerUI
             // Save the tournament to the data source.
             GlobalConfig.Connection.CreateTournament(tournament);
 
+            tournament.AlertUsersToNewRound();
+
             TournamentViewerForm form = new(tournament);
             form.Show();
+            this.Close();
         }
     }
 }
