@@ -58,7 +58,7 @@ namespace TrackerUI
                 p.PhoneNumber = phoneValue.Text;
 
                 // Save the person
-                p = GlobalConfig.Connection.CreatePerson(p);
+                GlobalConfig.Connection.CreatePerson(p);
 
                 // Update the form
                 selectedTeamMembers.Add(p);
@@ -138,7 +138,7 @@ namespace TrackerUI
             GlobalConfig.Connection.CreateTeam(t);
 
             callingForm.TeamComplete(t);
-            this.Close();
+            Close();
         }
     }
 }

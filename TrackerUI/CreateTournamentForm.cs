@@ -137,6 +137,9 @@ namespace TrackerUI
 
             // Save the tournament to the data source.
             GlobalConfig.Connection.CreateTournament(tournament);
+
+            TournamentViewerForm form = new(tournament);
+            form.Show();
         }
     }
 }
